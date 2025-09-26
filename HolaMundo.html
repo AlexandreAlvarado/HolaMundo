@@ -1,11 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hola Mundo - Página Moderna</title>
+    <meta name="description" content="Una página moderna y elegante de bienvenida">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Partículas de fondo animadas */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+
+        /* Contenedor principal */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 80px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideIn 1s ease-out;
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite alternate;
+            letter-spacing: 2px;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.8); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out 1s both;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+        }
+
+        .social-icons {
+            margin-top: 30px;
+            animation: fadeInUp 1s ease-out 1.5s both;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 0 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            line-height: 50px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* Ondas decorativas */
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C150,100 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: cover;
+            animation: wave-animation 3s ease-in-out infinite;
+        }
+
+        @keyframes wave-animation {
+            0%, 100% { transform: translateX(0px) scaleY(1); }
+            50% { transform: translateX(-25px) scaleY(1.1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                margin: 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hola Mundo</h1>
+    <!-- Partículas animadas -->
+    <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="top: 80%; left: 20%; animation-delay: 1s;"></div>
+    <div class="particle" style="top: 40%; left: 80%; animation-delay: 2s;"></div>
+    <div class="particle" style="top: 60%; left: 70%; animation-delay: 3s;"></div>
+    <div class="particle" style="top: 30%; left: 50%; animation-delay: 4s;"></div>
+    <div class="particle" style="top: 70%; left: 90%; animation-delay: 2.5s;"></div>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <h1>¡Hola Mundo!</h1>
+        <p class="subtitle">Bienvenido a mi página web moderna</p>
+        
+        <a href="#" class="btn" onclick="showMessage()">Explorar</a>
+        <a href="#" class="btn" onclick="changeColors()">Cambiar Colores</a>
+        
+        <div class="social-icons">
+            <a href="#" class="social-icon" title="GitHub">⚡</a>
+            <a href="#" class="social-icon" title="LinkedIn">🌟</a>
+            <a href="#" class="social-icon" title="Twitter">🚀</a>
+        </div>
+    </div>
+
+    <!-- Ondas decorativas -->
+    <div class="wave"></div>
+
+    <script>
+        // Funcionalidad interactiva
+        function showMessage() {
+            const messages = [
+                "¡Increíble! ✨",
+                "¡Fantástico! 🎉",
+                "¡Genial! 🌟",
+                "¡Maravilloso! 🎊"
+            ];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            alert(randomMessage);
+        }
+
+        function changeColors() {
+            const colors = [
+                'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+                'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+            ];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.background = randomColor;
+        }
+
+        // Generar más partículas dinámicamente
+        function createParticles() {
+            for (let i = 0; i < 8; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                document.body.appendChild(particle);
+            }
+        }
+
+        // Efecto de hover en el título
+        document.querySelector('h1').addEventListener('mouseover', function() {
+            this.style.transform = 'scale(1.05)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+
+        document.querySelector('h1').addEventListener('mouseout', function() {
+            this.style.transform = 'scale(1)';
+        });
+
+        // Inicializar partículas adicionales
+        createParticles();
+
+        // Efecto de paralaje sutil
+        document.addEventListener('mousemove', function(e) {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            document.querySelectorAll('.particle').forEach((particle, index) => {
+                const speed = (index + 1) * 0.5;
+                particle.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
